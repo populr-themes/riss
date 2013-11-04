@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Name of yur theme -->
+  <title>Riss</title>
+
+  <palette class="palette-default" name="Light" preview="#ccc">
+  <palette class="palette-dark" name="Dark" preview="#111">
+
+  <!-- Add any styles your theme requires here -->
+  <link rel="stylesheet" type="text/css" href="/roboto/stylesheet.css">
+  <link rel="stylesheet/less" type="text/css" href="/styles/main.less">
+  <!-- This script loads the Populr theming engine. Populr will automatically
+       remove it at runtime. -->
+  <script src="http://populr.me/assets/developers/themer.js"></script>
+  <!-- Add any javscript your theme requires here -->
+  <script src="/js/main.js"></script>
+
+</head>
+<body>
+  <!-- Put your theme's inside this script tag. The script tag will
+       prevent issues with quote escaping and invalid markup. -->
+  <script id="theme" type="text/x-handlebars-template">
+    
+    {{#if title}}
+    <div class="pop-title-wrapper">{{{title}}}</div>
+    {{/if}}
+    <div id="header-region-wrapper">
+      {{#region "columnizer" id="header-region" max_cols="1" dummy_content="I-3|T-5|V-1|E-1|D-4" default_content="I-3|T-1" max_auto_assets="1"}}
+        {{#asset "text" size="1"}}
+          {{{title}}}
+          <div class="content">
+            {{{body}}}
+          </div>
+        {{/asset}}
+
+        {{#asset "documentgroup" size="1"}}
+          {{{title}}}
+          <div class="content">
+            <ul class="documents">
+            {{#documents}}
+              <li><a href="{{original_url}}">{{title}}</a></li>
+            {{/documents}}
+            </ul>
+          </div>
+          {{{description}}}
+        {{/asset}}
+
+        {{#asset "embedgroup" size="1" width="190"}}
+          {{{title}}}
+          <div class="content">
+          {{#embeds}}
+            <div class="embed">{{{html}}}</div>
+          {{/embeds}}
+          </div>
+          {{{description}}}
+        {{/asset}}
+
+        {{#asset "imagegroup" size="1"}}
+          {{{title}}}
+          <div class="content">
+          {{#images}}
+            {{#if link}}
+              <a href="{{link}}"><img src="{{{resize original_url width="190" height="0"}}}" alt="{{title}}" /></a>
+            {{else}}
+              <img src="{{{resize original_url width="190" height="0"}}}" alt="{{title}}" />
+            {{/if}}
+          {{/images}}
+          </div>
+          {{{description}}}
+        {{/asset}}
+
+        {{#asset "videogroup" size="1"}}
+          {{{title}}}
+          <div class="content">
+          {{{videoplayer contents width="190" height="165" resolution="small"}}}
+          </div>
+          {{{description}}}
+        {{/asset}}
+      {{/region}}
+      <div id="meta">
+        {{pop_links}}
+        {{sharing}}
+      </div>
+    </div>
+
+
+    {{#region "packer" id="main-region" columns="2" column_width="340" gutter_width="20" dummy_content="I-3-l,T-1-l,V-1-l,E-1-l,D-4-l,T-1-m,T-3-m,T-1-m,I-3-m,T-1-m,V-1-m,E-1-m,D-4-m" default_content="T-1-m,I-2-m" max_auto_assets="0" sizes="m,l" default_size="m"}}
+
+      {{#asset "text" size="m"}}
+        {{{title}}}
+        <div class="content">
+          {{{body}}}
+        </div>
+      {{/asset}}
+
+      {{#asset "text" size="l"}}
+        {{{title}}}
+        <div class="content">
+          {{{body}}}
+        </div>
+      {{/asset}}
+
+      {{#asset "documentgroup" size="m"}}
+        {{{title}}}
+        <div class="content">
+          <ul class="documents">
+          {{#documents}}
+            <li><a href="{{original_url}}">{{title}}</a></li>
+          {{/documents}}
+          </ul>
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "documentgroup" size="l"}}
+        {{{title}}}
+        <div class="content">
+          <ul class="documents">
+          {{#documents}}
+            <li><a href="{{original_url}}">{{title}}</a></li>
+          {{/documents}}
+          </ul>
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "embedgroup" size="m" width="320"}}
+        {{{title}}}
+        <div class="content">
+        {{#embeds}}
+          <div class="embed">{{{html}}}</div>
+        {{/embeds}}
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "embedgroup" size="l" width="680"}}
+        {{{title}}}
+        <div class="content">
+        {{#embeds}}
+          <div class="embed">{{{html}}}</div>
+        {{/embeds}}
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "imagegroup" size="m"}}
+        {{{title}}}
+        <div class="content">
+          {{{imageslider contents width="320" height="232" fancybox_enabled=false}}}
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "imagegroup" size="l"}}
+        {{{title}}}
+        <div class="content">
+          {{{imageslider contents width="680" height="502" fancybox_enabled=false}}}
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "videogroup" size="m"}}
+        {{{title}}}
+        <div class="content">
+        {{{videoplayer contents width="320" height="232" resolution="medium"}}}
+        </div>
+        {{{description}}}
+      {{/asset}}
+
+      {{#asset "videogroup" size="l"}}
+        {{{title}}}
+        <div class="content">
+        {{{videoplayer contents width="680" height="502" resolution="large"}}}
+        </div>
+        {{{description}}}
+      {{/asset}}
+    {{/region}}
+    
+  </script>
+</body>
+</html>
